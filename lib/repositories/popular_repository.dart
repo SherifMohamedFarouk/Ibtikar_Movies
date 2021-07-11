@@ -5,7 +5,7 @@ import 'package:ibtikar_movies/services/popular_services.dart';
 
 
 class PostRepository{
-
+  var dbpage = 1;
   // check if there a network, if not return saved results from data base
   Future<List<Result>> fetchResults(int page) async{
     // get the network status
@@ -17,8 +17,11 @@ class PostRepository{
       return List<Result>.from(savedPosts.map((savedPost) => Result.fromJson(savedPost)));
     } else{
       var products = await PopularServices.fetchPopular(page);
-      for(final result in products.results){
-        dbHelper.insert(result.toMap());
+      if (dbpage == page) {
+        for (final result in products.results) {
+          dbHelper.insert(result.toMap());
+        }
+        dbpage++;
       }
       return products.results;
     }

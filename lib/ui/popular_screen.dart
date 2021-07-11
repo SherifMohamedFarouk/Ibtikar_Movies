@@ -24,6 +24,7 @@ class PopularScreen extends StatelessWidget {
             return screenControllers.isPopularLoading.value
                 ? Center(child: CircularProgressIndicator())
                 : ListView.builder(
+                controller: screenControllers.scrollController.value,
                 itemCount: screenControllers.popularList.length,
                 itemBuilder: (context, index) {
                   final note = screenControllers.popularList[index];
