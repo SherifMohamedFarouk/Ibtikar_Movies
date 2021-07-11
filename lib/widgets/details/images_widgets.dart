@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ibtikar_movies/config/palette.dart';
+import 'package:ibtikar_movies/ui/uis.dart';
 
 class ImagesWidgets extends StatelessWidget {
   final String images;
@@ -11,6 +12,9 @@ class ImagesWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Get.to(() =>
+            BigImageScreen(
+                image:"https://www.themoviedb.org/t/p/original${images}"));
       },
       child: Padding(
           padding: EdgeInsets.only(top: 5),

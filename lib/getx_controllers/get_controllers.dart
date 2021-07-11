@@ -16,13 +16,14 @@ class GetControllers extends GetxController {
   var page = 1.obs;
   var known = "Acting".obs;
   var scrollController = ScrollController().obs;
-
   PostRepository _postRepository = PostRepository();
+
   @override
   void onInit() {
     fetchPopular(1);
     addPopularList(page.value);
   }
+
 
   fetchPopular(int page) async {
     isPopularLoading(true);
@@ -37,25 +38,19 @@ class GetControllers extends GetxController {
         page++;
         addPopular(page);
       }
-    });
-  }
+    });}
 
   addPopular(int page) async {
     var products = await _postRepository.fetchResults(page);
     if (products != null) {
       popularList.addAll(products);
-    }
-
-  }
+    }}
 
   fetchImages(int personId) async {
-    var logger = Logger();
     isImagesLoading(true);
     var products = await ImagesServices.fetchImages(personId);
-    logger.d(personId.toString());
     if (products != null) {
       personImages.value =products.profiles ;
-      logger.d(personImages.value.length.toString());
       isImagesLoading(false);
     }
   }
@@ -63,11 +58,6 @@ class GetControllers extends GetxController {
   @override
   void onClose() {
  scrollController.value.dispose();
-  }
-
-  @override
-  void onReady() {
-
   }
 
 }
