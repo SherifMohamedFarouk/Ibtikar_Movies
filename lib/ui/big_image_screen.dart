@@ -12,14 +12,11 @@ class BigImageScreen extends StatelessWidget {
       body: Container(
         height:MediaQuery.of(context).size.height ,
         width:MediaQuery.of(context).size.width ,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
           child: CachedNetworkImage(
             imageUrl: image,
             fit: BoxFit.fill,
           ),
         ),
-      ),
     );
   }
 }
