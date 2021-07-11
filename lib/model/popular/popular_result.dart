@@ -1,3 +1,4 @@
+import 'package:ibtikar_movies/db/db_helper.dart';
 
 class Result {
   Result({
@@ -27,4 +28,13 @@ class Result {
     "profile_path": profilePath,
   };
 
+  Map<String, dynamic> toMap(){
+    return {
+      DbHelper.COLUMN_ID:dbId,
+      DbHelper.id:id,
+      DbHelper.gender:gender,
+      DbHelper.name:name,
+      DbHelper.profilePath:profilePath,
+    };
+  }
 }
