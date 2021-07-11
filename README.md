@@ -4,13 +4,12 @@ A new Flutter application.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+I btikar Task Flutter project:
+-   State management package is GetX
+-   Used sqflite with the cached network Images to save the lists and images for the the last part and the bounes part
+-   used http and loggers for the api and deguging
+-    and if there anything that u want me to add or adjust i would be happy to
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
