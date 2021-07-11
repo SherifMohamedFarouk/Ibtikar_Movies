@@ -35,7 +35,8 @@ class PopularScreen extends StatelessWidget {
                       personKnownFor: screenControllers.known.value,
                       personId: note.id,
                       gender: note.gender,
-                      page: page);
+                      page: page,
+                  );
                 });
           }),
         ),

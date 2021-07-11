@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ibtikar_movies/config/palette.dart';
+import 'package:ibtikar_movies/getx_controllers/get_controllers.dart';
+import 'package:ibtikar_movies/ui/uis.dart';
 
-class PopularWidgets extends StatelessWidget {
+class PopularWidgets extends GetView<GetControllers>  {
   final String personImage;
   final String personName;
   final String personKnownFor;
@@ -24,7 +27,9 @@ class PopularWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-
+          controller.fetchImages(personId);
+          Get.to(() => DetailsScreen(
+              personName: personName, personKnownFor: personKnownFor,gender:gender));
     },
         child: Padding(
           padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -53,7 +58,7 @@ class PopularWidgets extends StatelessWidget {
                     personName,
                     style:
                     TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  )
+                  ),
                 ],
               ),
             ),
